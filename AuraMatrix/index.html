@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>טבלת שערי האורה – AuraMatrix (AM)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AuraMatrix – טבלת 39 שערי האורה, מחולקת ל־3 שלבים + מטריקס מלאה לכל השערים, בעברית מלאה." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #f5c84c;
+      --accent-soft: rgba(245, 200, 76, 0.15);
+      --text-main: #f8fafc;
+      --text-soft: #cbd5f5;
+      --border-soft: #243056;
+      --chip-bg: #111827;
+      --chip-border: #374151;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #050816 45%, #020617 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 1.5rem 1.5rem 0.5rem;
+      border-bottom: 1px solid var(--border-soft);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.3));
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-badge {
+      font-size: 0.8rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    nav {
+      margin-top: 0.75rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .nav-links li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(15,23,42,0.9);
+      color: var(--text-soft);
+    }
+
+    .nav-links li a:hover {
+      border-color: var(--accent);
+      background: rgba(15,23,42,1);
+      color: var(--text-main);
+    }
+
+    main {
+      padding: 1.5rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto 2rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--chip-border);
+      background: var(--chip-bg);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+
+    .notice {
+      background: #1e293b;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px dashed var(--border-soft);
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .notice strong {
+      color: var(--accent);
+    }
+
+    .card {
+      background: rgba(15,23,42,0.95);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+      font-size: 0.85rem;
+      direction: rtl;
+    }
+
+    thead {
+      background: linear-gradient(to left, rgba(245,200,76,0.18), rgba(56,189,248,0.08));
+    }
+
+    th, td {
+      padding: 0.5rem 0.4rem;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+      text-align: right;
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(15,23,42,0.7);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: rgba(15,23,42,0.4);
+    }
+
+    tbody tr:hover {
+      background: rgba(30,64,175,0.55);
+    }
+
+    .col-num {
+      width: 3rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .col-gate {
+      width: 8rem;
+      font-weight: 600;
+    }
+
+    .col-stage {
+      width: 5rem;
+      white-space: nowrap;
+    }
+
+    .badge-stage {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--chip-border);
+      background: rgba(15,23,42,0.9);
+      font-size: 0.75rem;
+    }
+
+    .badge-stage.stage-1 {
+      border-color: #22c55e;
+    }
+
+    .badge-stage.stage-2 {
+      border-color: #f97316;
+    }
+
+    .badge-stage.stage-3 {
+      border-color: #38bdf8;
+    }
+
+    .tag-empty {
+      font-size: 0.75rem;
+      color: #f97316;
+    }
+
+    footer {
+      padding: 1rem 1.5rem 2rem;
+      border-top: 1px solid var(--border-soft);
+      background: radial-gradient(circle at bottom, #020617 0, #020617 40%, #000 100%);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-verse {
+      max-width: 420px;
+    }
+
+    .rap-lines {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+      }
+      main {
+        padding: 1rem;
+      }
+      .card {
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div>
+        <div class="brand-title">
+          <span>✨ טבלת שערי האורה</span>
+          <span class="brand-badge">AuraMatrix · AM</span>
+        </div>
+        <div class="subtitle">
+          39 שערים 🔹 3 שלבים (בירור · תיקון · השלמה) 🔹 מטריקס מלאה אחת לכל השערים
+        </div>
+      </div>
+    </div>
+    <nav aria-label="ניווט מהיר">
+      <ul class="nav-links">
+        <li><a href="#intro">ℹ️ מבוא</a></li>
+        <li><a href="#stage-1">🟢 שלב ראשון – בירור (1–13)</a></li>
+        <li><a href="#stage-2">🟠 שלב שני – תיקון (14–26)</a></li>
+        <li><a href="#stage-3">🔵 שלב שלישי – השלמה (27–39)</a></li>
+        <li><a href="#matrix">🧬 מטריקס מלאה – כל ה־39</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section id="intro">
+      <h2 class="section-title">ℹ️ מבוא – איך לעבוד עם הטבלה?</h2>
+      <p class="section-subtitle">
+        כל שער מייצג מצב תודעה, מלאכת שבת מקבילה ותנועה מעשית שמניעה את האדם מתוהו לבירור, מתיקון להשלמה.  
+        למטה תמצא טבלה לכל שלב בנפרד, ולבסוף מטריקס מלאה עם כל ה־39 יחד.
+      </p>
+      <div class="pill-row">
+        <div class="pill">🟢 בירור – שערים 1–13</div>
+        <div class="pill">🟠 תיקון – שערים 14–26</div>
+        <div class="pill">🔵 השלמה – שערים 27–39</div>
+        <div class="pill">🧬 מטריקס – כל השערים בטבלה אחת</div>
+      </div>
+      <div class="notice">
+        <strong>הערה חשובה:</strong> שערים <strong>1–13</strong> ו־<strong>27–39</strong> מלאים לפי הטבלאות הקיימות.  
+        שערים <strong>14–26</strong נמצאים כשלד מוכן בטבלה – ניתן להשלים אותם לפי החומר שלך בקובצי המקור.
+      </div>
+    </section>
+
+    <!-- Stage 1 -->
+    <section id="stage-1">
+      <h2 class="section-title">🟢 שלב ראשון – בירור (1–13)</h2>
+      <p class="section-subtitle">
+        שלב הבירור: זיהוי הקליפות, הכוחות, והכוונה הראשונית של האדם. כאן מתחילים לסדר את האור מתוך החושך.
+      </p>
+      <div class="card">
+        <div class="table-wrapper">
+          <table aria-label="טבלת שערי האורה – שלב ראשון בירור">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-gate">שער האורה</th>
+                <th>משמעות השער</th>
+                <th>מלאכת שבת</th>
+                <th>משמעות המלאכה</th>
+                <th>פעולה להנעה</th>
+              </tr>
+            </thead>
+            <tbody id="table-stage-1">
+              <!-- נבנה דינמית -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 2 -->
+    <section id="stage-2">
+      <h2 class="section-title">🟠 שלב שני – תיקון (14–26)</h2>
+      <p class="section-subtitle">
+        שלב התיקון: עבודה פעילה על המידות, דפוסים והרגלים. כאן נכנס המאמץ המודע ליישר את החיים עם האור.
+      </p>
+      <div class="card">
+        <div class="notice">
+          שערים 14–26 מסומנים כאן כשלד.  
+          אפשר לעדכן כל שורה ישירות בקוד ה־JavaScript בתחתית הקובץ – לפי הטבלאות המלאות שיש לך.
+        </div>
+        <div class="table-wrapper">
+          <table aria-label="טבלת שערי האורה – שלב שני תיקון">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-gate">שער האורה</th>
+                <th>משמעות השער</th>
+                <th>מלאכת שבת</th>
+                <th>משמעות המלאכה</th>
+                <th>פעולה להנעה</th>
+              </tr>
+            </thead>
+            <tbody id="table-stage-2">
+              <!-- נבנה דינמית -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 3 -->
+    <section id="stage-3">
+      <h2 class="section-title">🔵 שלב שלישי – השלמה (27–39)</h2>
+      <p class="section-subtitle">
+        שלב ההשלמה: חיבור עמוק לתיקון העולם, עבודת הנשמה, דבקות ואור הגאולה. מכאן האור מתפשט החוצה.
+      </p>
+      <div class="card">
+        <div class="table-wrapper">
+          <table aria-label="טבלת שערי האורה – שלב שלישי השלמה">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-gate">שער האורה</th>
+                <th>משמעות השער</th>
+                <th>מלאכת שבת</th>
+                <th>משמעות המלאכה</th>
+                <th>פעולה להנעה</th>
+              </tr>
+            </thead>
+            <tbody id="table-stage-3">
+              <!-- נבנה דינמית -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Matrix -->
+    <section id="matrix">
+      <h2 class="section-title">🧬 מטריקס מלאה – כל ה־39</h2>
+      <p class="section-subtitle">
+        כאן רואים את כל המערכת בבת אחת: המספר, השער, המלאכה והפעולה. אפשר לסרוק את כל הדרך – מבירור עד השלמה.
+      </p>
+      <div class="card">
+        <div class="table-wrapper">
+          <table aria-label="מטריקס מלאה – 39 שערי האורה">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-stage">שלב</th>
+                <th class="col-gate">שער האורה</th>
+                <th>משמעות השער</th>
+                <th>מלאכת שבת</th>
+                <th>משמעות המלאכה</th>
+                <th>פעולה להנעה</th>
+              </tr>
+            </thead>
+            <tbody id="table-matrix">
+              <!-- נבנה דינמית -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-verse">
+        <strong>פסוק חיזוק:</strong><br />
+        <span>״כִּי נֵר מִצְוָה וְתּוֹרָה אוֹר וְדֶרֶךְ חַיִּים תּוֹכְחוֹת מוּסָר״ (משלי ו, כג)</span><br />
+        <span>מספר המידות: 13 – י״ג מידות הרחמים.</span>
+      </div>
+      <div>
+        <strong>🎤 AuraMatrix – Rap Hook:</strong>
+        <div class="rap-lines">
+          אור בשער אחד, מטפס מדרגה למעלה,  
+          שלושים ותשע ניצוצות – הנשמה כבר לא נופלת למטה,  
+          בירור, תיקון, השלמה – זו המפה של הדרך,  
+          AuraMatrix בלב, אתה הופך את כל החושך לברק זורח.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===============================
+    // 🔢 נתוני 39 שערי האורה – AuraMatrix
+    // stage: 1 = בירור, 2 = תיקון, 3 = השלמה
+    // ⚠ שערים 14–26 כאן כשלד – מומלץ לעדכן לפי הטבלה המלאה שלך.
+    // ===============================
+
+    const gates = [
+      // --- שלב ראשון: בירור (1–13) ---
+      {
+        id: 1,
+        stage: 1,
+        gate: "כתר עליון",
+        meaning: "מקור השפע העליון – חיבור למקור האור.",
+        melacha: "זורע",
+        melachaMeaning: "התחלה חדשה, זריעת כיוון חדש בחיים.",
+        action: "התחל פרויקט חדש שמכוון כולו לשם שמים."
+      },
+      {
+        id: 2,
+        stage: 1,
+        gate: "חכמה",
+        meaning: "אור האינסוף הראשון – הבזק ההשראה.",
+        melacha: "חורש",
+        melachaMeaning: "הכנת הקרקע לקבלת הזרע.",
+        action: "הכן תוכנית מפורטת שתכין את הקרקע למהלך הבא."
+      },
+      {
+        id: 3,
+        stage: 1,
+        gate: "בינה",
+        meaning: "ההבנה העליונה – פירוק האור לחלקים.",
+        melacha: "קוצר",
+        melachaMeaning: "הפרדת הטוב מן הרע, לקיחת העיקר.",
+        action: "זהה את הכישרונות שלך והפרד ביניהם לבין הרעשים."
+      },
+      {
+        id: 4,
+        stage: 1,
+        gate: "חסד",
+        meaning: "כוח הנתינה וההשפעה.",
+        melacha: "מעמר",
+        melachaMeaning: "איסוף הטוב למוקד אחד.",
+        action: "התנדב מכישרונותיך למען מישהו אחר השבוע."
+      },
+      {
+        id: 5,
+        stage: 1,
+        gate: "גבורה",
+        meaning: "כוח הדין והצמצום – לשים גבולות.",
+        melacha: "דש",
+        melachaMeaning: "שבירת הקליפות והפרדת העיקר מהטפל.",
+        action: "צור גבולות ברורים לזמן, למסך וליחסים מבזבזי אנרגיה."
+      },
+      {
+        id: 6,
+        stage: 1,
+        gate: "תפארת",
+        meaning: "איזון בין חסד לדין – יופי של אמת.",
+        melacha: "זורה",
+        melachaMeaning: "הפרדת המוץ מן התבן ברוח.",
+        action: "מצא את האיזון בין נתינה לאחרים לבין שמירה על עצמך."
+      },
+      {
+        id: 7,
+        stage: 1,
+        gate: "נצח",
+        meaning: "התמדה והתמודדות – כוח הניצחון.",
+        melacha: "בורר",
+        melachaMeaning: "בחירת הטוב והמתאים ביותר.",
+        action: "קבע זמן קבוע ללימוד או עבודה רוחנית – ועמוד בו."
+      },
+      {
+        id: 8,
+        stage: 1,
+        gate: "הוד",
+        meaning: "קבלת עול וענווה – הודאה באמת.",
+        melacha: "טוחן",
+        melachaMeaning: "פירוק לגורמים עד למרכיבים הדקים.",
+        action: "קבל על עצמך משימה מאתגרת ופרק אותה לצעדים קטנים."
+      },
+      {
+        id: 9,
+        stage: 1,
+        gate: "יסוד",
+        meaning: "קשר בין עליונים לתחתונים – תעלת השפע.",
+        melacha: "מרקד",
+        melachaMeaning: "חיבור החלקים ליצירה אחת.",
+        action: "חבר בין לימוד למעשה: יישם נקודה אחת שלמדת היום."
+      },
+      {
+        id: 10,
+        stage: 1,
+        gate: "מלכות",
+        meaning: "גילוי האור בעולם המעשה.",
+        melacha: "לש",
+        melachaMeaning: "יצירת צורה חדשה מהחומרים הקיימים.",
+        action: "יישם בפועל את מה שלמדת – פעולה אחת קונקרטית היום."
+      },
+      {
+        id: 11,
+        stage: 1,
+        gate: "חכמה נסתרת",
+        meaning: "הבנה שמעבר לגילוי – לראות מעבר לחומר.",
+        melacha: "אופה",
+        melachaMeaning: "הפיכת חומר לרוח – שינוי הצורה.",
+        action: "התבונן בתהליך אחד בחייך: מה הבצק ומה הלחם שיוצא ממנו."
+      },
+      {
+        id: 12,
+        stage: 1,
+        gate: "דעת קדושה",
+        meaning: "החיבור לידיעה השלמה – חיבור חלקים לתמונה אחת.",
+        melacha: "גוזז צמר",
+        melachaMeaning: "הפרדת החומר מן הרוח.",
+        action: "חקור מחשבות שורשיות: מה מניע אותך מאחורי הקלעים."
+      },
+      {
+        id: 13,
+        stage: 1,
+        gate: "התבוננות פנימית",
+        meaning: "ראיית העומק הנסתר בנפש.",
+        melacha: "מכבס",
+        melachaMeaning: "ניקוי וזיכוך מהכתמים.",
+        action: "ערוך חשבון נפש יומי קצר וכתוב נקודה אחת לשיפור."
+      },
+
+      // --- שלב שני: תיקון (14–26) – שלד להשלמה ---
+      {
+        id: 14,
+        stage: 2,
+        gate: "שער 14 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 15,
+        stage: 2,
+        gate: "שער 15 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 16,
+        stage: 2,
+        gate: "שער 16 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 17,
+        stage: 2,
+        gate: "שער 17 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 18,
+        stage: 2,
+        gate: "שער 18 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 19,
+        stage: 2,
+        gate: "שער 19 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 20,
+        stage: 2,
+        gate: "שער 20 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 21,
+        stage: 2,
+        gate: "שער 21 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 22,
+        stage: 2,
+        gate: "שער 22 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 23,
+        stage: 2,
+        gate: "שער 23 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 24,
+        stage: 2,
+        gate: "שער 24 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 25,
+        stage: 2,
+        gate: "שער 25 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+      {
+        id: 26,
+        stage: 2,
+        gate: "שער 26 – להשלמה",
+        meaning: "",
+        melacha: "",
+        melachaMeaning: "",
+        action: ""
+      },
+
+      // --- שלב שלישי: השלמה (27–39) ---
+      {
+        id: 27,
+        stage: 3,
+        gate: "השכינה",
+        meaning: "התגלות נוכחות ה' בעולם – חוויית הטוב האלוקי.",
+        melacha: "מפשיט",
+        melachaMeaning: "הסרת המעטפת החיצונית.",
+        action: "ראה את הטוב האלוקי מאחורי המעטפת החיצונית של המציאות."
+      },
+      {
+        id: 28,
+        stage: 3,
+        gate: "חיבור עליונים ותחתונים",
+        meaning: "אחדות בין העולמות – עליונים ותחתונים.",
+        melacha: "מעבד",
+        melachaMeaning: "עיבוד חומר לרוח.",
+        action: "חבר בין חומר לרוח: הפוך פעולה גשמית לכוונה רוחנית."
+      },
+      {
+        id: 29,
+        stage: 3,
+        gate: "מידת הרחמים",
+        meaning: "התעלות מעל הדין.",
+        melacha: "ממחק",
+        melachaMeaning: "מחיקת כתמים ועיוותים.",
+        action: "דון אדם אחד לכף זכות – במעשה או במחשבה."
+      },
+      {
+        id: 30,
+        stage: 3,
+        gate: "סודות הבריאה",
+        meaning: "הבנת תהליך הבריאה והמבנה שלה.",
+        melacha: "משרטט",
+        melachaMeaning: "ציור המבנה ותוכנית הבריאה.",
+        action: "למד פרק או רעיון שמעמיק בסודות הבריאה והמבנה של העולם."
+      },
+      {
+        id: 31,
+        stage: 3,
+        gate: "גאולת ישראל",
+        meaning: "איך מגיעים לתיקון העולם דרך עם ישראל.",
+        melacha: "חותר",
+        melachaMeaning: "חפירת יסודות ותשתיות.",
+        action: "פעל למען תיקון עם ישראל – תפילה, לימוד, או מעשה חסד ליחיד."
+      },
+      {
+        id: 32,
+        stage: 3,
+        gate: "עבודת הנשמה",
+        meaning: "העבודה הפנימית העמוקה של האדם.",
+        melacha: "כותב",
+        melachaMeaning: "תיעוד התובנות והפיכתן למילים.",
+        action: "כתוב ביומן הרוחני תובנה אחת מהיום – ושרטט לה צעד מעשי."
+      },
+      {
+        id: 33,
+        stage: 3,
+        gate: "הארה אלוקית",
+        meaning: "קבלת אור הנשמה והשראה אלוקית.",
+        melacha: "מוחק",
+        melachaMeaning: "ניקוי המחשבות והסרת העודף.",
+        action: "טהר את המחשבות: שחרר דאגה אחת או מחשבת סרק שמכבידה."
+      },
+      {
+        id: 34,
+        stage: 3,
+        gate: "תיקון העולם",
+        meaning: "איך לתקן את העולם כולו.",
+        melacha: "בונה",
+        melachaMeaning: "בניית מבנה חדש ומתוקן.",
+        action: "בנה רעיון או מיזם קטן לטובת החברה – אפילו ברמת סיעור מוחות."
+      },
+      {
+        id: 35,
+        stage: 3,
+        gate: "ידיעה שלמה",
+        meaning: "השגת חכמה שלמה ומיושבת.",
+        melacha: "סותר",
+        melachaMeaning: "פירוק המבנה הישן כדי לפנות מקום לחדש.",
+        action: "הפץ חכמה טובה: שתף תובנה עמוקה עם אדם אחד לפחות."
+      },
+      {
+        id: 36,
+        stage: 3,
+        gate: "חכמה פנימית",
+        meaning: "הבנת השלמות של המציאות.",
+        melacha: "מכבה",
+        melachaMeaning: "כיבוי היצרים והדחפים המזיקים.",
+        action: "שלוט ביצרים: כבה תגובה אחת אימפולסיבית שקופצת לך אוטומטית."
+      },
+      {
+        id: 37,
+        stage: 3,
+        gate: "גילוי משיח",
+        meaning: "קבלת תפקיד הגאולה ועבודת האור.",
+        melacha: "מבעיר",
+        melachaMeaning: "הדלקת האור והאש הפנימית.",
+        action: "הדלק את אור הגאולה בלב: אמור תפילה קצרה לגאולה כללית ופרטית."
+      },
+      {
+        id: 38,
+        stage: 3,
+        gate: "תענוג עליון",
+        meaning: "חוויית האור העליון ותענוג הנשמה.",
+        melacha: "מכה בפטיש",
+        melachaMeaning: "השלמת המלאכה וסגירת התהליך.",
+        action: "מצא את השמחה בעבודת ה' – עצור לרגע להודות על צעד שהושלם."
+      },
+      {
+        id: 39,
+        stage: 3,
+        gate: "דבקות שלמה",
+        meaning: "השגת דבקות מוחלטת באלוקים.",
+        melacha: "מוציא מרשות לרשות",
+        melachaMeaning: "העברת האור מרשותך לרשות אחרים.",
+        action: "העבר את האור הלאה – שתף, למד, עודד או האר למישהו אחר היום."
+      }
+    ];
+
+    function stageLabel(stage) {
+      if (stage === 1) return "בירור (1–13)";
+      if (stage === 2) return "תיקון (14–26)";
+      if (stage === 3) return "השלמה (27–39)";
+      return "";
+    }
+
+    function renderStageTable(stage, tbodyId) {
+      const tbody = document.getElementById(tbodyId);
+      tbody.innerHTML = "";
+
+      gates
+        .filter(g => g.stage === stage)
+        .sort((a, b) => a.id - b.id)
+        .forEach(g => {
+          const tr = document.createElement("tr");
+
+          const tdNum = document.createElement("td");
+          tdNum.className = "col-num";
+          tdNum.textContent = g.id;
+
+          const tdGate = document.createElement("td");
+          tdGate.className = "col-gate";
+          tdGate.textContent = g.gate;
+
+          const tdMeaning = document.createElement("td");
+          tdMeaning.textContent = g.meaning || "";
+          if (!g.meaning) {
+            const span = document.createElement("span");
+            span.className = "tag-empty";
+            span.textContent = "להשלמה";
+            tdMeaning.appendChild(span);
+          }
+
+          const tdMelacha = document.createElement("td");
+          tdMelacha.textContent = g.melacha || "";
+          if (!g.melacha) {
+            const span = document.createElement("span");
+            span.className = "tag-empty";
+            span.textContent = "להשלמה";
+            tdMelacha.appendChild(span);
+          }
+
+          const tdMelachaMeaning = document.createElement("td");
+          tdMelachaMeaning.textContent = g.melachaMeaning || "";
+          if (!g.melachaMeaning) {
+            const span = document.createElement("span");
+            span.className = "tag-empty";
+            span.textContent = "להשלמה";
+            tdMelachaMeaning.appendChild(span);
+          }
+
+          const tdAction = document.createElement("td");
+          tdAction.textContent = g.action || "";
+          if (!g.action) {
+            const span = document.createElement("span");
+            span.className = "tag-empty";
+            span.textContent = "להשלמה";
+            tdAction.appendChild(span);
+          }
+
+          tr.appendChild(tdNum);
+          tr.appendChild(tdGate);
+          tr.appendChild(tdMeaning);
+          tr.appendChild(tdMelacha);
+          tr.appendChild(tdMelachaMeaning);
+          tr.appendChild(tdAction);
+
+          tbody.appendChild(tr);
+        });
+    }
+
+    function renderMatrixTable() {
+      const tbody = document.getElementById("table-matrix");
+      tbody.innerHTML = "";
+
+      gates
+        .slice()
+        .sort((a, b) => a.id - b.id)
+        .forEach(g => {
+          const tr = document.createElement("tr");
+
+          const tdNum = document.createElement("td");
+          tdNum.className = "col-num";
+          tdNum.textContent = g.id;
+
+          const tdStage = document.createElement("td");
+          tdStage.className = "col-stage";
+          const badge = document.createElement("span");
+          badge.className = "badge-stage stage-" + g.stage;
+          badge.textContent = stageLabel(g.stage);
+          tdStage.appendChild(badge);
+
+          const tdGate = document.createElement("td");
+          tdGate.className = "col-gate";
+          tdGate.textContent = g.gate;
+
+          const tdMeaning = document.createElement("td");
+          tdMeaning.textContent = g.meaning || "";
+
+          const tdMelacha = document.createElement("td");
+          tdMelacha.textContent = g.melacha || "";
+
+          const tdMelachaMeaning = document.createElement("td");
+          tdMelachaMeaning.textContent = g.melachaMeaning || "";
+
+          const tdAction = document.createElement("td");
+          tdAction.textContent = g.action || "";
+
+          tr.appendChild(tdNum);
+          tr.appendChild(tdStage);
+          tr.appendChild(tdGate);
+          tr.appendChild(tdMeaning);
+          tr.appendChild(tdMelacha);
+          tr.appendChild(tdMelachaMeaning);
+          tr.appendChild(tdAction);
+
+          tbody.appendChild(tr);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderStageTable(1, "table-stage-1");
+      renderStageTable(2, "table-stage-2");
+      renderStageTable(3, "table-stage-3");
+      renderMatrixTable();
+    });
+  </script>
+</body>
+</html>
