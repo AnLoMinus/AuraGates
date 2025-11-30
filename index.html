@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>39 שערי האורה – AuraGates (AG)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AuraGates – 39 שערי האורה: שלושה שלבים (בירור, תיקון, השלמה), מבנה רוחני של 39 מלאכות שבת, ומסלול עבודה יומיומי. אתר קוסמי, עברית מלאה, GitHub Pages." />
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-soft: #02091b;
+      --bg-card: rgba(15, 23, 42, 0.92);
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.16);
+      --accent-2: #38bdf8;
+      --text-main: #f9fafb;
+      --text-soft: #cbd5f5;
+      --border-soft: #1e293b;
+      --danger-soft: #fb923c;
+      --radius-lg: 1.25rem;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, #1f2937 0, transparent 45%),
+        radial-gradient(circle at 90% 0%, #1e293b 0, transparent 40%),
+        radial-gradient(circle at 0% 100%, #0f172a 0, transparent 40%),
+        radial-gradient(circle at 100% 100%, #020617 0, transparent 40%),
+        linear-gradient(160deg, #020617, #020617 55%, #000 100%);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* ✨ רקע קוסמי נע */
+    .cosmic-orb {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(40px);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: -1;
+      animation: floatOrb 26s ease-in-out infinite alternate;
+    }
+
+    .cosmic-orb.orb-1 {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.9), transparent 70%);
+      top: -80px;
+      right: -40px;
+    }
+
+    .cosmic-orb.orb-2 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.9), transparent 70%);
+      bottom: -120px;
+      left: -80px;
+      animation-delay: 6s;
+    }
+
+    .cosmic-orb.orb-3 {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.9), transparent 70%);
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-delay: 12s;
+    }
+
+    @keyframes floatOrb {
+      0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.25;
+      }
+      50% {
+        transform: translate3d(10px, -20px, 0);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translate3d(-15px, 25px, 0);
+        opacity: 0.3;
+      }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.65), transparent);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #facc15, #4f46e5, #020617);
+      border: 1px solid rgba(248, 250, 252, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 0 18px rgba(250, 204, 21, 0.6);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .logo-badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      border-color: rgba(250, 204, 21, 0.7);
+      background: linear-gradient(to left, rgba(250, 204, 21, 0.2), rgba(56, 189, 248, 0.1));
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 2.5rem;
+    }
+
+    /* 🎯 Hero */
+    #hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 1.5rem;
+      align-items: center;
+      margin: 1.2rem 0 2.2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(to left, #facc15, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 34rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-badge {
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.85);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .btn {
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #facc15, #f97316);
+      box-shadow: 0 12px 30px rgba(248, 250, 252, 0.15);
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(30, 64, 175, 0.58);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-soft);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      opacity: 0.9;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 10% 0%, rgba(250, 204, 21, 0.25), transparent 55%),
+                  radial-gradient(circle at 90% 100%, rgba(56, 189, 248, 0.26), transparent 55%),
+                  rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 1.1rem 1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 50% 0, rgba(248, 250, 252, 0.25) 0, transparent 55%);
+      opacity: 0.18;
+      mix-blend-mode: screen;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-stage-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .stage-chip {
+      border-radius: 0.9rem;
+      padding: 0.4rem 0.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: rgba(15, 23, 42, 0.94);
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .stage-chip span.label {
+      font-weight: 600;
+    }
+
+    .stage-chip span.meta {
+      color: var(--text-soft);
+      font-size: 0.7rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-stat-pill {
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-rings {
+      position: absolute;
+      inset: 20%;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.08);
+      pointer-events: none;
+      animation: pulseRing 8s ease-in-out infinite;
+    }
+
+    .hero-rings::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: inherit;
+      border: 1px dashed rgba(248, 250, 252, 0.06);
+    }
+
+    @keyframes pulseRing {
+      0% {
+        transform: scale(1);
+        opacity: 0.55;
+      }
+      50% {
+        transform: scale(1.03);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.55;
+      }
+    }
+
+    /* 🔹 Sections */
+    section {
+      margin-bottom: 2.3rem;
+    }
+
+    .section-header {
+      margin-bottom: 0.8rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      letter-spacing: 0.04em;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 40rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 0.9rem 0.9rem 1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0% 0%, rgba(250, 204, 21, 0.04), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.24s ease-out;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .card-pill {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .card-body {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .card-tags {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+    }
+
+    .card-tag {
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: rgba(15, 23, 42, 0.93);
+    }
+
+    /* 🌉 כרטיסי השערים */
+    .gates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .gate-card {
+      background: radial-gradient(circle at 0 0, rgba(250, 204, 21, 0.18), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.18), transparent 55%),
+                  var(--bg-card);
+      border-radius: 1rem;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      padding: 0.75rem 0.8rem 0.85rem;
+      font-size: 0.8rem;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gate-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+      border-color: rgba(250, 204, 21, 0.9);
+    }
+
+    .gate-badge {
+      font-size: 0.7rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      margin-bottom: 0.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .gate-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.4rem;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+
+    .gate-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .gate-id {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .gate-meaning {
+      color: var(--text-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .gate-meta {
+      font-size: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      color: var(--text-soft);
+    }
+
+    .gate-meta span {
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* 🧭 How-to steps */
+    .steps-list {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .step-item {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      border: 1px solid var(--border-soft);
+      padding: 0.8rem 0.85rem;
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step-item::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      inset-inline-start: 0.55rem;
+      top: 0.55rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #111827;
+      font-weight: 700;
+      box-shadow: 0 0 14px rgba(250, 204, 21, 0.7);
+    }
+
+    .step-title {
+      margin-inline-start: 2.1rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-text {
+      margin-inline-start: 2.1rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    /* 📡 CTA */
+    .cta-card {
+      background: radial-gradient(circle at 0% 50%, rgba(250, 204, 21, 0.16), transparent 60%),
+                  radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.18), transparent 60%),
+                  rgba(15, 23, 42, 0.96);
+      border-radius: 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.85);
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-text {
+      font-size: 0.94rem;
+      max-width: 34rem;
+    }
+
+    .cta-text strong {
+      color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 1rem 1.25rem 1.8rem;
+      background: radial-gradient(circle at 50% 100%, #020617 0, #020617 45%, #000 100%);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 1rem;
+    }
+
+    .footer-verse {
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .footer-meta {
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .footer-rap {
+      font-size: 0.8rem;
+      white-space: pre-line;
+    }
+
+    .footer-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-meta a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🌬️ אנימציית כניסה בגלילה */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      #hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding-inline: 0.9rem;
+      }
+      .nav-wrap {
+        padding-inline: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🌌 שכבת רקע קוסמי -->
+  <div class="cosmic-orb orb-1"></div>
+  <div class="cosmic-orb orb-2"></div>
+  <div class="cosmic-orb orb-3"></div>
+
+  <!-- 🔝 תפריט עליון -->
+  <header>
+    <div class="nav-wrap">
+      <div class="logo-block">
+        <div class="logo-icon">AG</div>
+        <div>
+          <div class="logo-text-main">
+            <span>39 שערי האורה</span>
+            <span class="logo-badge">AuraGates · AG</span>
+          </div>
+          <div class="logo-text-sub">
+            ט״ל שערים · 39 מלאכות · מסלול אחד של אור
+          </div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#stages">✨ שלושת השלבים</a></li>
+        <li><a href="#gates">🔎 שערי האורה</a></li>
+        <li><a href="#how-to">🧭 איך עובדים</a></li>
+        <li><a href="#cta" class="nav-cta">🧬 טבלת 39 · AuraMatrix</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- 🎯 Hero -->
+    <section id="hero">
+      <div data-animate>
+        <h1 class="hero-title">
+          מסע דרך <span class="highlight">39 שערי האורה</span><br />
+          מהבירור – עד השלמה.
+        </h1>
+        <p class="hero-subtitle">
+          AuraGates (AG) הוא שער הכניסה שלך ל־39 שערי האורה:  
+          שלושה שלבים מסודרים – <strong>בירור, תיקון, השלמה</strong> –  
+          שמקבילים ל־39 מלאכות שבת ומשרטטים מסלול חיים של אור, משמעות ותיקון.
+        </p>
+
+        <div class="hero-badges">
+          <span class="hero-badge">🌀 39 שערים · ט״ל ניצוצות</span>
+          <span class="hero-badge">🧱 39 מלאכות שבת · מבנה הבריאה</span>
+          <span class="hero-badge">🧭 מסלול יומיומי לעבודה פנימית</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#gates" class="btn btn-primary">
+            🚀 התחל מהשער הראשון
+          </a>
+          <a href="#cta" class="btn btn-ghost">
+            🧬 לראות את כל המטריקס
+          </a>
+        </div>
+        <div class="hero-note">
+          💡 מומלץ: לבחור שער אחד ליום, שער אחד לשבוע, ושער אחד לחודש – ולחיות איתו.
+        </div>
+      </div>
+
+      <!-- כרטיס ויזואלי של השלבים -->
+      <div class="hero-card" data-animate>
+        <div class="hero-rings"></div>
+        <div class="hero-card-inner">
+          <div class="hero-card-title">
+            <span>🔭 מפת שלושת השלבים</span>
+            <span style="font-size:0.78rem; color:var(--text-soft);">
+              בירור · תיקון · השלמה
+            </span>
+          </div>
+          <div class="hero-stage-row">
+            <div class="stage-chip">
+              <span class="label">🟢 שלב א׳ – בירור</span>
+              <span class="meta">שערים 1–13 · זיהוי, סינון ויציאה מהבלבול.</span>
+            </div>
+            <div class="stage-chip">
+              <span class="label">🟠 שלב ב׳ – תיקון</span>
+              <span class="meta">שערים 14–26 · עבודה על המידות, הרגלים ותודעה.</span>
+            </div>
+            <div class="stage-chip">
+              <span class="label">🔵 שלב ג׳ – השלמה</span>
+              <span class="meta">שערים 27–39 · דבקות, גאולה ותיקון העולם.</span>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <span class="hero-stat-pill">📜 39 מלאכות שבת כמפת־על לעבודה</span>
+            <span class="hero-stat-pill">🕯 חיבור לשבת, נשמה וגילוי השכינה</span>
+            <span class="hero-stat-pill">🧠 מיפוי תודעתי + צעדים מעשיים</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✨ שלושת השלבים -->
+    <section id="stages">
+      <div class="section-header" data-animate>
+        <div class="section-eyebrow">✨ שלושת השלבים</div>
+        <h2 class="section-title">מבירור – דרך תיקון – עד השלמה</h2>
+        <p class="section-subtitle">
+          השערים מתחלקים לשלושה מצבים פנימיים: קודם כל רואים איפה אנחנו עומדים (בירור),
+          אחר כך פועלים לשנות (תיקון), ולבסוף חיים את האור במציאות (השלמה).
+        </p>
+      </div>
+
+      <div class="grid-3" data-animate>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🟢 שלב ראשון – בירור (1–13)</span>
+            <span class="card-pill">יציאה מהערפל</span>
+          </div>
+          <div class="card-body">
+            זיהוי הקליפות, דפוסים, בלבולים ופחדים – וראיית הנקודות הטובות והניצוצות
+            שבתוך החיים. שלב של שאלות, חקירה, כנות פנימית והסרת מסכות.
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">🔍 חשבון נפש</span>
+            <span class="card-tag">🧹 ניקוי רעשים</span>
+            <span class="card-tag">🧊 שבירת הרגלים תקועים</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🟠 שלב שני – תיקון (14–26)</span>
+            <span class="card-pill">התחלה מחדש</span>
+          </div>
+          <div class="card-body">
+            בניית הרגלים חדשים, תיקון המידות, עבודה על דיבור, מחשבה ומעשה.  
+            כאן הופכים תובנות לכלים: מטרות, צעדים, תרגולים, תפילה ועשייה בפועל.
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">⚙ שינוי הרגלים</span>
+            <span class="card-tag">❤️ תיקון המידות</span>
+            <span class="card-tag">📅 עבודה יומיומית</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🔵 שלב שלישי – השלמה (27–39)</span>
+            <span class="card-pill">אור של גאולה</span>
+          </div>
+          <div class="card-body">
+            חיבור עמוק לנשמה, לשכינה ולתיקון העולם.  
+            חיים של שליחות: לא רק להציל את עצמי – אלא להאיר את כל מי שסביבי.
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">🌍 תיקון העולם</span>
+            <span class="card-tag">🕊 דבקות ושליחות</span>
+            <span class="card-tag">🧬 חיבור נשמות ודורות</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔎 שערי האורה – כרטיסים -->
+    <section id="gates">
+      <div class="section-header" data-animate>
+        <div class="section-eyebrow">🔎 שערי האורה</div>
+        <h2 class="section-title">טעימה מתוך 39 השערים</h2>
+        <p class="section-subtitle">
+          כאן תראה מבט־על על מבנה השערים.  
+          כל כרטיס מייצג שער – עם משמעות קצרה, מלאכה מקבילה, וכיוון של תנועה מעשית.
+          (במטריקס המלאה תוכל לראות את כל ה־39 עם כל הפרטים.)
+        </p>
+      </div>
+
+      <div class="gates-grid" id="gates-grid" data-animate>
+        <!-- הכרטיסים נבנים ב־JS -->
+      </div>
+    </section>
+
+    <!-- 🧭 איך עובדים עם AuraGates -->
+    <section id="how-to">
+      <div class="section-header" data-animate>
+        <div class="section-eyebrow">🧭 מסלול עבודה</div>
+        <h2 class="section-title">איך להשתמש ב־AuraGates ביום־יום?</h2>
+        <p class="section-subtitle">
+          לא עוד “רק רעיון יפה בספר” – אלא מסלול שימושי: בחירת שער, עבודה איתו,
+          ותיעוד התהליך ביומן האישי שלך.
+        </p>
+      </div>
+
+      <div class="steps-list" data-animate>
+        <div class="step-item">
+          <div class="step-title">בחר שער – יום, שבוע או חודש</div>
+          <div class="step-text">
+            סרוק את השערים ובחר אחד שמתאים למצבך הנוכחי: בירור, תיקון או השלמה.  
+            רצוי: שער אחד ליום, אחד לשבוע, ואחד לחודש – בעומק.
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-title">קרא את המשמעות והמלאכה</div>
+          <div class="step-text">
+            לכל שער יש משמעות תודעתית ומלאכת שבת מקבילה.  
+            שאל את עצמך: איך המלאכה הזאת מופיעה בחיים שלי? איפה אני בונה, זורה, מכבס, בורר?
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-title">קבע פעולה אחת להיום</div>
+          <div class="step-text">
+            מתוך ההסבר, בחר <strong>צעד אחד</strong> שאתה יכול לעשות היום:  
+            דיבור, מחשבה, מעשה, תפילה או ויתור – משהו קטן אך מחייב.
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-title">תעד ביומן – ואל תחמיר על עצמך</div>
+          <div class="step-text">
+            כתוב בסוף היום: מה הצלחתי? מה למדתי? מה יכנס למחר?  
+            העבודה היא תהליך – לא מבחן. כל צעד הוא ניצחון קטן של אור.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🧬 CTA – מעבר למטריקס המלאה -->
+    <section id="cta">
+      <div class="cta-card" data-animate>
+        <div class="cta-text">
+          <strong>רוצה לראות את כל ה־39 יחד?</strong><br />
+          טבלת AuraMatrix מציגה את כל השערים במבט אחד: מספר, שלב, שער, מלאכה, משמעות ופעולה.
+          משם אפשר לקפוץ לכל שער ולעבוד איתו לעומק.
+        </div>
+        <div>
+          <a href="https://anlominus.github.io/AuraMatrix/" class="btn btn-primary">
+            🧬 לפתוח את AuraMatrix (טבלת 39)
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🔚 Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-verse">
+        <strong>📜 פסוק מחזק – שערים:</strong><br />
+        <span>״פִּתְחוּ לִי שַׁעֲרֵי צֶדֶק אָבֹא בָם אוֹדֶה יָהּ״ (תהילים קי״ח, יט)</span><br />
+        <span>מספר המידות: 13 – י״ג מידות הרחמים.</span>
+      </div>
+
+      <div class="footer-meta">
+        <strong>📂 AuraGates · GitHub</strong><br />
+        מאגר: <a href="https://github.com/AnLoMinus/AuraGates">AnLoMinus/AuraGates</a><br />
+        אתר זה: <code>index.html</code> בשורש המאגר או בתיקיית <code>/docs/</code><br />
+        מומלץ לחבר לטבלאות וליומן מתוך תיקיות <code>/docs</code> ו־<code>/tools</code>.
+      </div>
+
+      <div class="footer-rap">
+        <strong>🎤 AuraGates – Rap Hook:</strong><br />
+        אור בשערים, אני פותח עוד לֵב 🔑<br />
+        ט״ל ניצוצות עולים, זה מסלול מתקרב 🚀<br />
+        בירור לתיקון ואז השלמה של עולם 🌍<br />
+        AuraGates בלב, כל צעד קטן – עוד חיבור עם העליון ✨
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 🎴 נתונים מקוצרים לכרטיסי שערים (טעימה בלבד)
+    const gatesData = [
+      // שלב א – בירור
+      { id: 1, stage: "בירור", name: "כתר עליון", meaning: "חיבור למקור האינסופי של האור.", melacha: "זורע", action: "להתחיל מסלול חדש בשם שמים." },
+      { id: 2, stage: "בירור", name: "חכמה", meaning: "הבזק ההשראה הראשון.", melacha: "חורש", action: "להכין את הקרקע בתכנון." },
+      { id: 3, stage: "בירור", name: "בינה", meaning: "פירוק האור לפרטים.", melacha: "קוצר", action: "להפריד עיקר מטפל בחיים." },
+      { id: 4, stage: "בירור", name: "חסד", meaning: "פתיחת הלב לתת ולהשפיע.", melacha: "מעמר", action: "לאסוף כישרונות ולשרת אחרים." },
+      { id: 5, stage: "בירור", name: "גבורה", meaning: "הצבת גבולות בריאים.", melacha: "דש", action: "לשבור הרגל מזיק אחד היום." },
+      { id: 6, stage: "בירור", name: "תפארת", meaning: "איזון בין חסד לדין.", melacha: "זורה", action: "למצוא את קו האמצע בסיטואציה אחת." },
+      { id: 7, stage: "בירור", name: "נצח", meaning: "התמדה ועמידה בניסיונות.", melacha: "בורר", action: "לבחור דבר אחד שלא מוותרים עליו." },
+      { id: 8, stage: "בירור", name: "הוד", meaning: "ענווה והודאה באמת.", melacha: "טוחן", action: "לפַרֵק קושי גדול לצעדים קטנים." },
+      { id: 9, stage: "בירור", name: "יסוד", meaning: "חיבור בין עולמות.", melacha: "מרקד", action: "לחבר לימוד אחד למעשה היום." },
+      { id: 10, stage: "בירור", name: "מלכות", meaning: "הורדת האור למעשה.", melacha: "לש", action: "לבצע פעולה אחת קונקרטית של תיקון." },
+      { id: 11, stage: "בירור", name: "חכמה נסתרת", meaning: "ראיית הרבדים הנסתרים.", melacha: "אופה", action: "לזהות תהליך 'אפייה' אחד בחיים שלך." },
+      { id: 12, stage: "בירור", name: "דעת קדושה", meaning: "חיבור בין מוח ללב.", melacha: "גוזז צמר", action: "לברר מה מהות ומה קליפה במחשבה אחת." },
+      { id: 13, stage: "בירור", name: "התבוננות פנימית", meaning: "מבט כנה פנימה.", melacha: "מכבס", action: "לכתוב נקודה אחת לניקוי היומי." },
+
+      // שלב ב – תיקון (טעימה – ניתן להרחיב במטריקס)
+      { id: 14, stage: "תיקון", name: "יישוב הדעת", meaning: "ליצור שקט פנימי ומיקוד.", melacha: "צובע", action: "להחליף מחשבה שחורה בצבע של תקווה." },
+      { id: 15, stage: "תיקון", name: "תיקון הדיבור", meaning: "לשון נקייה ובונה.", melacha: "כותב", action: "להוסיף מילה טובה לשיחה מורכבת." },
+      { id: 16, stage: "תיקון", name: "תיקון המחשבה", meaning: "סינון מחשבות שליליות.", melacha: "מוחק", action: "לתפוס מחשבה אחת ולעצור אותה בעדינות." },
+      { id: 17, stage: "תיקון", name: "תיקון המידות", meaning: "כעס, קנאה, גאווה ועוד.", melacha: "בונה", action: "לבחור מידה אחת לתרגול שבועי." },
+      { id: 18, stage: "תיקון", name: "תיקון הזמן", meaning: "ניהול נכון של השעות.", melacha: "סותר", action: "להרוס דפוס דחיינות קטן." },
+      { id: 19, stage: "תיקון", name: "תיקון הבית", meaning: "שלום בית ואווירה טובה.", melacha: "מבעיר", action: "להצית אור – מילה טובה בבית." },
+      { id: 20, stage: "תיקון", name: "תיקון הכעס", meaning: "להפוך אש הדינים לאש של קדושה.", melacha: "מכבה", action: "לתרגל נשימה אחת במקום פיצוץ." },
+      { id: 21, stage: "תיקון", name: "תיקון העיניים", meaning: "היכן אני מביט ומה אני מחפש.", melacha: "מוציא מרשות לרשות", action: "להעביר מבט לדברים טובים." },
+      { id: 22, stage: "תיקון", name: "תיקון הלב", meaning: "ריכוך, רגישות ואמפתיה.", melacha: "מעבד עורות", action: "להפשיר מקום אחד קפוא בלב." },
+      { id: 23, stage: "תיקון", name: "תיקון הרצון", meaning: "ליישר רצונות עם נשמה.", melacha: "טוחן (פנימי)", action: "לשאול 'לשם מה אני רוצה את זה?'." },
+      { id: 24, stage: "תיקון", name: "תיקון ההרגלים", meaning: "מחשבים מסלול מחדש.", melacha: "מעמר (הרגלים)", action: "להחליף הרגל קטן אחד." },
+      { id: 25, stage: "תיקון", name: "תיקון השגרה", meaning: "להכניס חיות ליום־יום.", melacha: "אופה (שגרה)", action: "להוסיף רגע קבוע של רוח ביום." },
+      { id: 26, stage: "תיקון", name: "תיקון המסלול", meaning: "בדיקת כיוון חיי.", melacha: "חולב/גוזז (סריקה)", action: "לשאול: האם המסלול שלי משרת את הנשמה?" },
+
+      // שלב ג – השלמה
+      { id: 27, stage: "השלמה", name: "השכינה", meaning: "להרגיש את נוכחות ה' בחיים.", melacha: "מפשיט", action: "להסיר שכבה חיצונית ולראות את הטוב." },
+      { id: 28, stage: "השלמה", name: "חיבור עליונים ותחתונים", meaning: "לחבר בין רוח לחומר.", melacha: "מעבד", action: "להפוך פעולה גשמית למצווה מכוּונת." },
+      { id: 29, stage: "השלמה", name: "מידת הרחמים", meaning: "לעלות מעל הדין.", melacha: "ממחק", action: "לדון אדם אחד לכף זכות היום." },
+      { id: 30, stage: "השלמה", name: "סודות הבריאה", meaning: "להבין את המפה הגדולה.", melacha: "משרטט", action: "ללמוד קטע על מבנה הבריאה." },
+      { id: 31, stage: "השלמה", name: "גאולת ישראל", meaning: "לקשור את חיי לגאולה.", melacha: "חותר", action: "לעשות מעשה קטן לטובת כלל ישראל." },
+      { id: 32, stage: "השלמה", name: "עבודת הנשמה", meaning: "לשמוע את קול הפנים.", melacha: "כותב", action: "לכתוב ביומן שיחת לב עם הנשמה." },
+      { id: 33, stage: "השלמה", name: "הארה אלוקית", meaning: "רגעי השראה עליונה.", melacha: "מוחק (רעשים)", action: "לכבות הסחת דעת אחת ולפנות מקום לאור." },
+      { id: 34, stage: "השלמה", name: "תיקון העולם", meaning: "להאיר החוצה, לא רק פנימה.", melacha: "בונה", action: "ליזום מעשה טוב לסביבה שלך." },
+      { id: 35, stage: "השלמה", name: "ידיעה שלמה", meaning: "לראות את התמונה הכוללת.", melacha: "סותר (דעות ישנות)", action: "להיפרד מתפיסה ישנה שמגבילה אותך." },
+      { id: 36, stage: "השלמה", name: "חכמה פנימית", meaning: "חיים מתוך תבונה עמוקה.", melacha: "מכבה (יצר)", action: "לכבות תגובה אוטומטית אחת." },
+      { id: 37, stage: "השלמה", name: "גילוי משיח", meaning: "לזהות את השליחות שלך.", melacha: "מבעיר (אש קדושה)", action: "להתפלל על הגאולה מתוך לב בוער." },
+      { id: 38, stage: "השלמה", name: "תענוג עליון", meaning: "שמחה ותענוג בעבודת ה'.", melacha: "מכה בפטיש", action: "לחגוג צעד אחד שהשלמת." },
+      { id: 39, stage: "השלמה", name: "דבקות שלמה", meaning: "להידבק באור בלי הפסקה.", melacha: "מוציא מרשות לרשות", action: "להעביר את האור הלאה – לשתף ולהאיר." }
+    ];
+
+    function buildGatesGrid() {
+      const container = document.getElementById("gates-grid");
+      container.innerHTML = "";
+
+      gatesData.forEach(g => {
+        const card = document.createElement("article");
+        card.className = "gate-card";
+
+        const badge = document.createElement("div");
+        badge.className = "gate-badge";
+        badge.textContent = (g.stage === "בירור" ? "🟢 " : g.stage === "תיקון" ? "🟠 " : "🔵 ") + g.stage;
+
+        const titleRow = document.createElement("div");
+        titleRow.className = "gate-title-row";
+
+        const name = document.createElement("div");
+        name.className = "gate-name";
+        name.textContent = g.name;
+
+        const id = document.createElement("div");
+        id.className = "gate-id";
+        id.textContent = "#" + String(g.id).padStart(2, "0");
+
+        titleRow.appendChild(name);
+        titleRow.appendChild(id);
+
+        const meaning = document.createElement("div");
+        meaning.className = "gate-meaning";
+        meaning.textContent = g.meaning;
+
+        const meta = document.createElement("div");
+        meta.className = "gate-meta";
+
+        const m1 = document.createElement("span");
+        m1.textContent = "מלאכה: " + g.melacha;
+        const m2 = document.createElement("span");
+        m2.textContent = "צעד: " + g.action;
+
+        meta.appendChild(m1);
+        meta.appendChild(m2);
+
+        card.appendChild(badge);
+        card.appendChild(titleRow);
+        card.appendChild(meaning);
+        card.appendChild(meta);
+
+        container.appendChild(card);
+      });
+    }
+
+    // 🌬️ אנימציית כניסה בגלילה
+    function setupScrollAnimations() {
+      const elements = document.querySelectorAll("[data-animate]");
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      elements.forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      buildGatesGrid();
+      setupScrollAnimations();
+    });
+  </script>
+</body>
+</html>
